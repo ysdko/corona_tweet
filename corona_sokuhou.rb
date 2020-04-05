@@ -32,10 +32,9 @@ end
 
 doc = Nokogiri::HTML.parse(html, nil, charset)
 
-if doc.css('#main_content > div.detail_free > p:nth-child(4) > a').text != previous
-  kanja = doc.css('#main_content > div.detail_free > p:nth-child(4) > a').text
-	detail =  doc.xpath('//*[@id="main_content"]/div[1]/p[4]/text()')
-
+if doc.css('#main_content > div.detail_free > p:nth-child(3) > a').text != previous
+  kanja = doc.css('#main_content > div.detail_free > p:nth-child(3) > a').text
+	detail =  doc.xpath('//*[@id="main_content"]/div[1]/p[3]/text()')
 	# kanja = kanja.delete("）").match(/患者(.*)/m).to_s
 	# kanja = kanja.delete("患者").split("～")
 	# kanja = kanja.tr("０-９", "0-9")
@@ -43,7 +42,7 @@ if doc.css('#main_content > div.detail_free > p:nth-child(4) > a').text != previ
 	tweet = "【コロナウイルス最新情報bot】\n#{kanja}\n#{detail}"
 
 	twClient.update tweet
-
+#main_content > div.detail_free > p:nth-child(3) > a
 end
 
 previous = doc.css('#main_content > div.detail_free > p:nth-child(4) > a').text
