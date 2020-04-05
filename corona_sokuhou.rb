@@ -24,6 +24,7 @@ url = "https://www.pref.fukuoka.lg.jp/contents/covid19-hassei.html"
 
 charset = nil
 previous =nil
+
 while 1 do
 html = open(url) do |f|
     charset = f.charset
@@ -32,21 +33,22 @@ end
 
 doc = Nokogiri::HTML.parse(html, nil, charset)
 
-if doc.css('#main_content > div.detail_free > p:nth-child(3) > a').text != previous
-  kanja = doc.css('#main_content > div.detail_free > p:nth-child(3) > a').text
-	detail =  doc.xpath('//*[@id="main_content"]/div[1]/p[3]/text()')
+# if doc.css('#main_content > div.detail_free > p:nth-child(3) > a').text != previous
+#   kanja = doc.css('#main_content > div.detail_free > p:nth-child(3) > a').text
+# 	detail =  doc.xpath('//*[@id="main_content"]/div[1]/p[3]/text()')
+
 	# kanja = kanja.delete("）").match(/患者(.*)/m).to_s
 	# kanja = kanja.delete("患者").split("～")
 	# kanja = kanja.tr("０-９", "0-9")
 	# puts kanja
-	tweet = "【コロナウイルス最新情報bot】\n#{kanja}\n#{detail}"
+	# tweet = "【コロナウイルス最新情報bot】\n#{kanja}\n#{detail}"
 
-	twClient.update tweet
+	twClient.update Time.now
 #main_content > div.detail_free > p:nth-child(3) > a
-end
+# end
 
-previous = doc.css('#main_content > div.detail_free > p:nth-child(4) > a').text
-sleep 1800
+# previous = doc.css('#main_content > div.detail_free > p:nth-child(4) > a').text
+sleep 10
 end
 # puts doc.xpath('//*[@id="main_content"]/div[1]/h3[1]').text
 # puts doc.css('#main_content > div.detail_free > p:nth-child(4) > a').each do |element|
