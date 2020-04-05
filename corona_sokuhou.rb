@@ -39,8 +39,10 @@ if doc.css('#main_content > div.detail_free > p:nth-child(4) > a').text != previ
 	# kanja = kanja.delete("）").match(/患者(.*)/m).to_s
 	# kanja = kanja.delete("患者").split("～")
 	# kanja = kanja.tr("０-９", "0-9")
-  # puts kanja
-	puts ("【コロナウイルス最新情報bot】\n#{kanja}\n#{detail}")
+	# puts kanja
+	tweet = "【コロナウイルス最新情報bot】\n#{kanja}\n#{detail}"
+
+	twClient.update tweet
 
 end
 
