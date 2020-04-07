@@ -47,7 +47,7 @@ if doc.css('#main_content > div.detail_free > p:nth-child(3) > a').text != previ
 #main_content > div.detail_free > p:nth-child(3) > a
 end
 
-previous = doc.css('#main_content > div.detail_free > p:nth-child(3) > a').text
+previous = doc.css('#main_content > div.detail_free > p:nth-child(2) > a').text
 sleep 10
 end
 # puts doc.xpath('//*[@id="main_content"]/div[1]/h3[1]').text
