@@ -36,7 +36,6 @@ doc = Nokogiri::HTML.parse(html, nil, charset)
 if doc.css('#main_content > div.detail_free > p:nth-child(2) > a').text != previous
   kanja = doc.css('#main_content > div.detail_free > p:nth-child(2) > a').text
   detail =  doc.xpath('//*[@id="main_content"]/div[1]/p[2]/text()')
-
 	# kanja = kanja.delete("）").match(/患者(.*)/m).to_s
 	# kanja = kanja.delete("患者").split("～")
 	# kanja = kanja.tr("０-９", "0-9")
@@ -48,7 +47,7 @@ if doc.css('#main_content > div.detail_free > p:nth-child(2) > a').text != previ
 end
 
 previous = doc.css('#main_content > div.detail_free > p:nth-child(2) > a').text
-sleep 10
+sleep 1800
 end
 # puts doc.xpath('//*[@id="main_content"]/div[1]/h3[1]').text
 # puts doc.css('#main_content > div.detail_free > p:nth-child(4) > a').each do |element|
